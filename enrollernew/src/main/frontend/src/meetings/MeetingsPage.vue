@@ -59,12 +59,12 @@
                   
                 this.$http.post('meetings/'+ meeting.id +'/participants', {login:this.username})
                
-                    .then(response => meeting.participants.push(response.data));
+                  .then(response => meeting.participants.push(response.data));
                   this.getMeetings();
                     
             },
             removeMeetingParticipant(meeting) {
-                this.$http.delete('meetings/'+ meeting.id + '/participants/' + this.username)
+               this.$http.delete('meetings/'+ meeting.id + '/participants/' + this.username)
                  .then(() => meeting.participants.splice(meeting.participants.indexOf(this.username), 1));
                        this.getMeetings();
             }
