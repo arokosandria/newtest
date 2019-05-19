@@ -39,7 +39,7 @@
         	getMeetings(){
         	this.$http.get('meetings')
                      .then(response => {
-                         this.meetings = response.body;
+                         this.meetings = response.data;
                          
                      });
         	
@@ -47,7 +47,7 @@
         	
            addNewMeeting(meeting) {
                 this.$http.post('meetings', meeting)
-                .then(response => this.meetings.push(response.body));
+                .then(response => this.meetings.push(response.data));
                     
             },
            
@@ -55,7 +55,20 @@
                 this.$http.delete('meetings/'+ meeting.id);
                 this.meetings.splice(this.meetings.indexOf(meeting), 1);
             },
+            addMeetingParticipant(meeting) {
+                  
+                this.$http.post('meetings/'+ meeting.id +'/participants', {login:this.username})
+               
+                    .then(response => meeting.participants.push(response.data));
+                     this.getMeetings();
+                    
+            },
+            removeMeetingParticipant(meeting) {
+                this.$http.delete('meetings/'+ meeting.id + '/participants/' + this.username)
+                    .then(() => meeting.participants.splice(meeting.participants.indexOf(this.username), 1));
+                     this.getMeetings();
             }
-        }
+            
+              }}
     
 </script>
