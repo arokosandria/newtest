@@ -66,7 +66,7 @@
             removeMeetingParticipant(meeting) {
                 this.$http.delete('meetings/'+ meeting.id + '/participants/' + this.username)
                     .then(() => meeting.participants.splice(meeting.participants.indexOf(this.username), 1));
-                     this.getMeetings();
+                      this.getMeetings();
             }
             
               }}
