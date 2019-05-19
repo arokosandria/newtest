@@ -1,4 +1,4 @@
-<<template>
+<template>
   <table v-if="meetings.length > 0">
     <thead>
     <tr>
@@ -20,8 +20,9 @@
         </ul>
       </td>
       <td style="text-align: right; min-width: 400px"><!--<button v-if="meeting.participants.indexOf(username) < 0" class="button-outline"-->
-         <button v-if="meeting.participants.indexOf(username) < 0" class="button-outline"
+            <button v-if="meeting.participants.find(l => l.login === username) == null" class="button-outline"
     @click="$emit('attend', meeting)">
+
           Zapisz się
         </button>
         <button v-else class="button-outline" @click="$emit('unattend', meeting)">Wypisz się</button>
