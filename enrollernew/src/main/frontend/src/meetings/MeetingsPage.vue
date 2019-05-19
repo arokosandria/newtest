@@ -60,7 +60,7 @@
                 this.$http.post('meetings/'+ meeting.id +'/participants', {login:this.username})
                
                     .then(response => meeting.participants.push(response.data));
-                     this.getMeetings();
+                    this.getMeetings();
                     
             },
             removeMeetingParticipant(meeting) {
