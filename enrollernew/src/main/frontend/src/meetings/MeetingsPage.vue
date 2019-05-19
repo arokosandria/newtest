@@ -59,7 +59,7 @@
                   
                 this.$http.post('meetings/'+ meeting.id +'/participants', {login:this.username})
                
-                  .then(response => meeting.participants.push(response.body));
+                  .then(response => meeting.participants.push(response.data));
                   this.getMeetings();
                     
             },
