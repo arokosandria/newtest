@@ -63,7 +63,7 @@
 
                   this.getMeetings()})
                     .catch(response => {
-                          console.log("nie udało się zapisac");
+                          console.log("zapisanie na zajęcia nie udało się");
                         
                      })
             },
@@ -72,7 +72,7 @@
                  .then(response => {meeting.participants.splice(meeting.participants.indexOf(this.username), 1)
                        this.getMeetings()})
                        .catch(response => {
-                          console.log("nie udało się zapisac");
+                          console.log("wypisanie z zajęc nie udało się");
                         
                      })
             }
